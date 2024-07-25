@@ -1,0 +1,12 @@
+#root {
+  width: 100vw;
+  max-width: 1920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body {
+  max-width: 1920px;
+  margin: 0;
+  padding: 0;
+}
