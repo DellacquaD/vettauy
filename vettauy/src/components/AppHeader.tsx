@@ -26,7 +26,7 @@ function AppHeader() {
 
   return (
     <div>
-        <AppBar position="fixed" style={{ backgroundImage: 'url(https://t4.ftcdn.net/jpg/02/92/73/13/360_F_292731351_p4objwWzlIieS2Kh7kbWVWmOhNrNE5Ft.jpg)', top: 0, left: 0, maxWidth: '1920px'}}>
+        <AppBar position="fixed" style={{ backgroundColor: "rgba(0, 0, 0, 0.8)", top: 0, left: 0, maxWidth: '1920px'}}>
         <Container maxWidth="xl" style={{ height: '12vh' }}>
             <Toolbar disableGutters style={{ height: '100%', display: 'flex' }}>
             <Typography
@@ -107,7 +107,7 @@ function AppHeader() {
                 <Button
                     key={page}
                     onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block', fontWeight: 500, fontSize: '20px' }}
+                    sx={{ my: 2, color: 'white', display: 'block', fontWeight: 500, fontSize: '20px', fontFamily: 'monospace', letterSpacing: '.1rem' }}
                 >
                     {page}
                 </Button>

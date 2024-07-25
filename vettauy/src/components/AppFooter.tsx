@@ -1,7 +1,11 @@
 import { FC, ReactElement } from "react";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, Paragraph } from "@mui/material";
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import XIcon from '@mui/icons-material/X';
+import PinterestIcon from '@mui/icons-material/Pinterest';
 
 export const AppFooter: FC = (): ReactElement => {
   return (
@@ -9,18 +13,15 @@ export const AppFooter: FC = (): ReactElement => {
       sx={{
         width: "100%",
         height: "auto",
-        backgroundImage: 'url(https://t4.ftcdn.net/jpg/02/92/73/13/360_F_292731351_p4objwWzlIieS2Kh7kbWVWmOhNrNE5Ft.jpg)',
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
         paddingTop: "1rem",
         paddingBottom: "1rem",
-        display: "grid",
-        gridTemplateColumns: "(3, 1fr",
-        gridTemplateRows: "repeat(2, auto)",
+        display: "flex",
+        alignItems: "center",
       }}
     >
-      <Container style={{ gridRow: 1, gridColumn: 1 }}>
-        <Container>
+      <Container >
+        <Container >
         <Typography
                 variant="h6"
                 noWrap
@@ -38,13 +39,13 @@ export const AppFooter: FC = (): ReactElement => {
             >
                 VETTA
             </Typography>
-            <Container>
+            <Container style={{ display: "flex", justifyContent: "center" }}>
                 <PinDropIcon />
                 <Typography
                     variant="h6"
                     flexWrap="wrap"
                     component="a"
-                    href="https://lh3.googleusercontent.com/a-/ALV-UjWDMysJqDKQ04aumdD6K7unLFu40ZrVxXkHbemaQLHu79erXbZQ=w36-h36-p-rp-mo-ba3-br100"
+                    href="https://www.google.com/maps/place/5P5R%2BRCX,+Av.+Luis+Batlle+Berres+6000,+12600+Montevideo,+Departamento+de+Montevideo/data=!4m2!3m1!1s0x95a1d450230ae329:0xbc313d638e77d282?sa=X&ved=1t:242&ictx=111"
                     sx={{
                         mr: 2,
                         fontFamily: 'monospace',
@@ -57,7 +58,7 @@ export const AppFooter: FC = (): ReactElement => {
                     Luis Batlle Berres 6000
                 </Typography>
             </Container>
-            <Container>
+            <Container style={{ display: "flex", justifyContent: "center" }}>
                 <WhatsAppIcon />
                 <Typography
                     variant="h6"
@@ -77,14 +78,56 @@ export const AppFooter: FC = (): ReactElement => {
             </Container>
         </Container>
       </Container>
-      <Container style={{ gridRow: 1, gridColumn: 2 }}>
-        Dos
-      </Container>
-      <Container style={{ gridRow: 1, gridColumn: 3 }}>
-        Tres
-      </Container>
-      <Container style={{ gridRow: 2, gridColumnStart: 1, gridColumnEnd: 4 }}>
-        Cuatro
+      <Typography>
+          lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </Typography>
+      {/* <Container style={{ display: "flex", flexDirection: "column", gap: "1rem"}}>
+        <Typography
+          variant="h6"
+          flexWrap="nowrap"
+          href="/"
+          component="a"
+          color="inherit"
+          fontFamily={'monospace'}
+          >INICIO</Typography>
+        <Typography
+          variant="h6"
+          flexWrap="nowrap"
+          href="/products"
+          component="a"
+          color="inherit"
+          fontFamily={'monospace'}
+          > PRODUCTOS</Typography>
+        <Typography
+          variant="h6"
+          flexWrap="nowrap"
+          href="/works"
+          component="a"
+          fontFamily={'monospace'}
+          color="inherit"
+          >TRABAJOS</Typography>
+        <Typography
+          variant="h6"
+          flexWrap="nowrap"
+          href="/about"
+          component="a"
+          fontFamily={'monospace'}
+          color="inherit"
+          >SOBRE NOSOTROS</Typography>
+        <Typography
+          variant="h6"
+          flexWrap="nowrap"
+          href="/contact"
+          component="a"
+          fontFamily={'monospace'}
+          color="inherit"
+          >CONTACTO</Typography>
+      </Container> */}
+      <Container style={{ display: "flex", flexDirection: "row", gap: "1rem", justifyContent: "center" }}>
+        <Typography><InstagramIcon /></Typography>
+        <Typography><FacebookIcon /></Typography>
+        <Typography><XIcon /></Typography>
+        <Typography><PinterestIcon /></Typography>
       </Container>
     </Box>
   );
