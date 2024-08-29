@@ -73,7 +73,7 @@ export const AppFooter: FC = (): ReactElement => {
                         textDecoration: 'none',
                     }}
                 >
-                    099 999 999
+                    099 123 456
                 </Typography>
             </Container>
         </Container>
