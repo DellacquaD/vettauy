@@ -1,5 +1,5 @@
 import { FC, ReactElement } from "react";
-import { Box, Container, Typography, Paragraph } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -79,7 +79,7 @@ export const AppFooter: FC = (): ReactElement => {
         </Container>
       </Container>
       <Typography>
-          lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Combinamos años de experiencia con técnicas modernas para ofrecerte soluciones personalizadas y de alta calidad. Nos especializamos en detalles precisos y acabados impecables, garantizando que cada proyecto, desde muebles a medida hasta renovaciones, supere tus expectativas.
       </Typography>
       {/* <Container style={{ display: "flex", flexDirection: "column", gap: "1rem"}}>
         <Typography
