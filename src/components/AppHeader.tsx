@@ -9,11 +9,21 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from 'react-router';
 
 
-const pages = ['Inicio', 'Productos', 'Trabajos', 'Sobre Nosotros', 'Contacto'];
+const pages = {
+    "Inicio": '/',
+    "Productos": '/products',
+    "Trabajos": '/works',
+    "Sobre Nosotros": '/about',
+    "Contacto": '/contact',
+    };
 
-function AppHeader() {
+    
+    function AppHeader() {
+    
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -76,10 +86,16 @@ function AppHeader() {
                     display: { xs: 'block', md: 'none' },
                 }}
                 >
-                {pages.map((page) => (
+                {Object.entries(pages).map(([page, path]) => (
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                    </MenuItem>
+                        <Button
+                            key={path}
+                            onClick={() => navigate(path)}
+                            sx={{ my: 2, display: 'block', fontWeight: 500, fontSize: '15px', fontFamily: 'monospace', letterSpacing: '.1rem' }}
+                        >
+                            {page}
+                            </Button>
+                    </MenuItem>                
                 ))}
                 </Menu>
             </Box>
@@ -103,15 +119,15 @@ function AppHeader() {
                 VETTA
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end', gap: '20px' }}>
-                {pages.map((page) => (
+            {Object.entries(pages).map(([page, path]) => (
                 <Button
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block', fontWeight: 500, fontSize: '20px', fontFamily: 'monospace', letterSpacing: '.1rem' }}
+                key={path}
+                onClick={() => navigate(path)}
+                sx={{ my: 2, color: 'white', display: 'block', fontWeight: 500, fontSize: '20px', fontFamily: 'monospace', letterSpacing: '.1rem' }}
                 >
-                    {page}
+                {page}
                 </Button>
-                ))}
+            ))}
             </Box>
             </Toolbar>
         </Container>
