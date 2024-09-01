@@ -16,7 +16,13 @@ export const AppFooter: FC = (): ReactElement => {
         backgroundColor: "rgba(0, 0, 0, 0.8)",
         paddingTop: "1rem",
         paddingBottom: "1rem",
-        display: "flex",
+        display: 'flex',
+        flexDirection: { xs: 'column', md: 'row' },
+        gap: {
+          xs: "1rem",
+          sm: "1rem",
+          md: "0",
+        },
         alignItems: "center",
       }}
     >
@@ -73,7 +79,7 @@ export const AppFooter: FC = (): ReactElement => {
                         textDecoration: 'none',
                     }}
                 >
-                    099 123 456
+                    098 258 098
                 </Typography>
             </Container>
         </Container>
