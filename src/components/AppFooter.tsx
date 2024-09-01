@@ -84,7 +84,11 @@ export const AppFooter: FC = (): ReactElement => {
             </Container>
         </Container>
       </Container>
-      <Typography>
+      <Typography sx={{
+        color: "white",
+        textAlign: "center",
+        padding: "1rem",
+      }}>
       Combinamos años de experiencia con técnicas modernas para ofrecerte soluciones personalizadas y de alta calidad. Nos especializamos en detalles precisos y acabados impecables, garantizando que cada proyecto, desde muebles a medida hasta renovaciones, supere tus expectativas.
       </Typography>
       <Container style={{ display: "flex", flexDirection: "row", gap: "1rem", justifyContent: "center" }}>
