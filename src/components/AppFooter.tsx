@@ -81,48 +81,6 @@ export const AppFooter: FC = (): ReactElement => {
       <Typography>
       Combinamos años de experiencia con técnicas modernas para ofrecerte soluciones personalizadas y de alta calidad. Nos especializamos en detalles precisos y acabados impecables, garantizando que cada proyecto, desde muebles a medida hasta renovaciones, supere tus expectativas.
       </Typography>
-      {/* <Container style={{ display: "flex", flexDirection: "column", gap: "1rem"}}>
-        <Typography
-          variant="h6"
-          flexWrap="nowrap"
-          href="/"
-          component="a"
-          color="inherit"
-          fontFamily={'monospace'}
-          >INICIO</Typography>
-        <Typography
-          variant="h6"
-          flexWrap="nowrap"
-          href="/products"
-          component="a"
-          color="inherit"
-          fontFamily={'monospace'}
-          > PRODUCTOS</Typography>
-        <Typography
-          variant="h6"
-          flexWrap="nowrap"
-          href="/works"
-          component="a"
-          fontFamily={'monospace'}
-          color="inherit"
-          >TRABAJOS</Typography>
-        <Typography
-          variant="h6"
-          flexWrap="nowrap"
-          href="/about"
-          component="a"
-          fontFamily={'monospace'}
-          color="inherit"
-          >SOBRE NOSOTROS</Typography>
-        <Typography
-          variant="h6"
-          flexWrap="nowrap"
-          href="/contact"
-          component="a"
-          fontFamily={'monospace'}
-          color="inherit"
-          >CONTACTO</Typography>
-      </Container> */}
       <Container style={{ display: "flex", flexDirection: "row", gap: "1rem", justifyContent: "center" }}>
         <Typography><InstagramIcon /></Typography>
         <Typography><FacebookIcon /></Typography>
