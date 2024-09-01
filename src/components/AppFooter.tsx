@@ -46,7 +46,8 @@ export const AppFooter: FC = (): ReactElement => {
             </Typography>
             <Container style={{ display: "flex", justifyContent: "center" }}>
                 <PinDropIcon sx={{
-                  color: "white"
+                  color: "white",
+                  mr: 1
                 }}/>
                 <Typography
                     variant="h6"
@@ -67,7 +68,8 @@ export const AppFooter: FC = (): ReactElement => {
             </Container>
             <Container style={{ display: "flex", justifyContent: "center" }}>
                 <WhatsAppIcon sx={{
-                  color: "white"
+                  color: "white",
+                  mr: 1
                 }}/>
                 <Typography
                     variant="h6"
