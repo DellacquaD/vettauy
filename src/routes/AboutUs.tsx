@@ -9,7 +9,7 @@ export const AboutUs: FC = (): ReactElement => {
     { title: "Sebastián Conde", text: "Apasionado por el diseño minimalista y la funcionalidad. Sus creaciones son elegantes y atemporales." },
     { title: "Rodrigo Gimenez", text: "Experto en restauración de antigüedades. Ha devuelto la vida a piezas centenarias con un amor profundo por la historia." },
     { title: "Carlos Poittevin", text: "Amante de la madera maciza y los detalles intrincados. Sus tallas y grabados son verdaderas obras de arte." },
-    { title: "Santiago Delgado", text: "Especializada en mobiliario personalizado. Cada proyecto es un desafío que aborda con creatividad y precisión." },
+    { title: "Santiago Delgado", text: "Especialista en mobiliario personalizado. Cada proyecto es un desafío que aborda con creatividad y precisión." },
   ];
 
   return (
@@ -41,7 +41,6 @@ export const AboutUs: FC = (): ReactElement => {
           justifyItems: "center",
         }}>
           <Cards cardInfo={cardInfo} />
-          {/* Otros Containers... */}
         </Container>
       </Box>
     </div>
