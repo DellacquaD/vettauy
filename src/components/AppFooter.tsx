@@ -39,14 +39,16 @@ export const AppFooter: FC = (): ReactElement => {
                     fontWeight: 700,
                     fontSize: '25px',
                     letterSpacing: '.4rem',
-                    color: 'inherit',
+                    color: 'white',
                     textDecoration: 'none',
                 }}
             >
                 VETTA
             </Typography>
             <Container style={{ display: "flex", justifyContent: "center" }}>
-                <PinDropIcon />
+                <PinDropIcon sx={{
+                  color: "white"
+                }}/>
                 <Typography
                     variant="h6"
                     flexWrap="wrap"
@@ -66,7 +68,9 @@ export const AppFooter: FC = (): ReactElement => {
                 </Typography>
             </Container>
             <Container style={{ display: "flex", justifyContent: "center" }}>
-                <WhatsAppIcon />
+                <WhatsAppIcon sx={{
+                  color: "white"
+                }}/>
                 <Typography
                     variant="h6"
                     flexWrap="wrap"
