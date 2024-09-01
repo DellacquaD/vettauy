@@ -92,10 +92,10 @@ export const AppFooter: FC = (): ReactElement => {
       Combinamos años de experiencia con técnicas modernas para ofrecerte soluciones personalizadas y de alta calidad. Nos especializamos en detalles precisos y acabados impecables, garantizando que cada proyecto, desde muebles a medida hasta renovaciones, supere tus expectativas.
       </Typography>
       <Container style={{ display: "flex", flexDirection: "row", gap: "1rem", justifyContent: "center" }}>
-        <Typography><InstagramIcon /></Typography>
-        <Typography><FacebookIcon /></Typography>
-        <Typography><XIcon /></Typography>
-        <Typography><PinterestIcon /></Typography>
+        <Typography><InstagramIcon sx={{ color: "white"}}/></Typography>
+        <Typography><FacebookIcon sx={{ color: "white"}}/></Typography>
+        <Typography><XIcon sx={{ color: "white"}}/></Typography>
+        <Typography><PinterestIcon sx={{ color: "white"}}/></Typography>
       </Container>
     </Box>
   );
