@@ -28,7 +28,7 @@ export const AboutUs: FC = (): ReactElement => {
         <Typography sx={{
           color: "white",
           textAlign: "center",
-          fontSize: "1.5rem",
+          fontSize: "1.3rem",
           fontFamily: "monospace",
         }}>
           Somos más que serruchos y clavos. Somos artesanos que transforman la madera en obras maestras. Cada pieza que sale de nuestro taller lleva consigo la dedicación, la precisión y el amor que solo un verdadero amante de la madera puede ofrecer.
