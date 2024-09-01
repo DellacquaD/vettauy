@@ -18,7 +18,7 @@ const Cards: FC<CardsProps> = ({ cardInfo }) => {
   return (
     <>
       {cardInfo.map((info, index) => (
-        <Card key={index} sx={{ maxWidth: 345 }}>
+        <Card key={index} sx={{ maxWidth: 345, boxShadow: '0 0 20px 0 rgba(0,0,0,0.6)', borderRadius: '10px' }}>
           <CardActionArea>
             {/* Puedes reemplazar la imagen con una que corresponda */}
             <CardContent>

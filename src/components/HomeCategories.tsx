@@ -4,12 +4,6 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 export default function TitlebarImageList() {
   return (
-    // <ImageList style={{ gap: '1rem', padding: '2rem' }} sx={{
-    //     gridTemplateColumns: {
-    //         xs: 'repeat(1, 1fr)',
-    //         md: 'repeat(2, 1fr)',
-    //     },
-    // }}>
     <ImageList
       style={{ gap: '1rem', padding: '2rem' }}
       sx={{
@@ -19,14 +13,23 @@ export default function TitlebarImageList() {
         },
       }}>
       {itemData.map((item) => (
-        <ImageListItem key={item.img} >
+        <ImageListItem key={item.img} sx={{
+            borderRadius: '10px',
+        }} >
           <img
             srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
             src={`${item.img}?w=248&fit=crop&auto=format`}
             alt={item.title}
             loading="lazy"
+            style={{ 
+                borderRadius: '10px',
+                boxShadow: '0 0 20px 0 rgba(0,0,0,0.6)',
+            }}
           />
           <ImageListItemBar
+          sx={{
+            borderRadius: '0 0 10px 10px'
+          }}
             title={item.title}
           />
         </ImageListItem>
