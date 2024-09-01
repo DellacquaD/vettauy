@@ -53,12 +53,13 @@ export const AppFooter: FC = (): ReactElement => {
                     component="a"
                     href="https://www.google.com/maps/place/5P5R%2BRCX,+Av.+Luis+Batlle+Berres+6000,+12600+Montevideo,+Departamento+de+Montevideo/data=!4m2!3m1!1s0x95a1d450230ae329:0xbc313d638e77d282?sa=X&ved=1t:242&ictx=111"
                     sx={{
-                        mr: 2,
-                        fontFamily: 'monospace',
+                      mr: 2,
+                      fontFamily: 'monospace',
+                      textDecoration:"none",
                         fontWeight: 500,
                         fontSize: '15px',
                         color: 'white',
-                        textDecoration: 'none',
+
                     }}
                 >
                     Luis Batlle Berres 6000
@@ -71,12 +72,12 @@ export const AppFooter: FC = (): ReactElement => {
                     flexWrap="wrap"
                     component="a"
                     sx={{
-                        mr: 2,
-                        fontFamily: 'monospace',
-                        fontWeight: 500,
+                      mr: 2,
+                      fontFamily: 'monospace',
+                      fontWeight: 500,
+                      textDecoration:"none",
                         fontSize: '15px',
                         color: 'white',
-                        textDecoration: 'none',
                     }}
                 >
                     098 258 098
