@@ -4,7 +4,20 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 export default function TitlebarImageList() {
   return (
-    <ImageList style={{ gap: '1rem', padding: '2rem' }}>
+    // <ImageList style={{ gap: '1rem', padding: '2rem' }} sx={{
+    //     gridTemplateColumns: {
+    //         xs: 'repeat(1, 1fr)',
+    //         md: 'repeat(2, 1fr)',
+    //     },
+    // }}>
+    <ImageList
+      style={{ gap: '1rem', padding: '2rem' }}
+      sx={{
+        gridTemplateColumns: {
+          xs: 'repeat(1, 1fr) !important',  // Forzar 1 columna en pantallas pequeñas (xs)
+          md: 'repeat(2, 1fr) !important',  // 2 columnas en pantallas medianas (md) y superiores
+        },
+      }}>
       {itemData.map((item) => (
         <ImageListItem key={item.img} >
           <img
