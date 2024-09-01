@@ -57,7 +57,7 @@ export const AppFooter: FC = (): ReactElement => {
                         fontFamily: 'monospace',
                         fontWeight: 500,
                         fontSize: '15px',
-                        color: 'inherit',
+                        color: 'white',
                         textDecoration: 'none',
                     }}
                 >
@@ -75,7 +75,7 @@ export const AppFooter: FC = (): ReactElement => {
                         fontFamily: 'monospace',
                         fontWeight: 500,
                         fontSize: '15px',
-                        color: 'inherit',
+                        color: 'white',
                         textDecoration: 'none',
                     }}
                 >
