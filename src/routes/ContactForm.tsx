@@ -39,41 +39,42 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-
-  const newErrors = {
-    nombre: formData.nombre === '',
-    email: !validateEmail(formData.email),
-    telefono: formData.telefono === '',
-    consulta: formData.consulta === '',
-  };
-
-  setErrors(newErrors);
-
-  if (!Object.values(newErrors).some((error) => error)) {
-    try {
-      const response = await fetch('http://localhost:3000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert('Formulario enviado con éxito');
-        setFormData({ nombre: '', email: '', telefono: '', consulta: '' });
-      } else {
+    e.preventDefault();
+  
+    const newErrors = {
+      nombre: formData.nombre === '',
+      email: !validateEmail(formData.email),
+      telefono: formData.telefono === '',
+      consulta: formData.consulta === '',
+    };
+  
+    setErrors(newErrors);
+  
+    if (!Object.values(newErrors).some((error) => error)) {
+      try {
+        const response = await fetch('/api/contact', {  // Cambia a URL relativa
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+  
+        if (response.ok) {
+          alert('Formulario enviado con éxito');
+          setFormData({ nombre: '', email: '', telefono: '', consulta: '' });
+        } else {
+          const errorData = await response.json();
+          alert(`Error al enviar el formulario: ${errorData.message}`);
+        }
+      } catch (error) {
+        console.error('Error:', error);
         alert('Error al enviar el formulario. Por favor, intenta de nuevo.');
       }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Error al enviar el formulario. Por favor, intenta de nuevo.');
+    } else {
+      alert('Por favor, completa todos los campos correctamente.');
     }
-  } else {
-    alert('Por favor, completa todos los campos correctamente.');
-  }
-};
+  };
 
 return (
   <div style={{
