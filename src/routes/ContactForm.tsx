@@ -38,50 +38,67 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    const newErrors = {
-      nombre: formData.nombre === '',
-      email: !validateEmail(formData.email),
-      telefono: formData.telefono === '',
-      consulta: formData.consulta === '',
-    };
-
-    setErrors(newErrors);
-
-    if (!Object.values(newErrors).some((error) => error)) {
-      // Todos los campos son válidos, aquí puedes manejar el envío del formulario.
-      alert('Formulario enviado con éxito');
-      // Aquí podrías agregar la lógica para enviar un correo electrónico, tal como una integración con un backend o servicio de correo.
-    } else {
-      alert('Por favor, completa todos los campos correctamente.');
-    }
+  const newErrors = {
+    nombre: formData.nombre === '',
+    email: !validateEmail(formData.email),
+    telefono: formData.telefono === '',
+    consulta: formData.consulta === '',
   };
 
-  return (
-    <div style={{
+  setErrors(newErrors);
+
+  if (!Object.values(newErrors).some((error) => error)) {
+    try {
+      const response = await fetch('http://localhost:3000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Formulario enviado con éxito');
+        setFormData({ nombre: '', email: '', telefono: '', consulta: '' });
+      } else {
+        alert('Error al enviar el formulario. Por favor, intenta de nuevo.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error al enviar el formulario. Por favor, intenta de nuevo.');
+    }
+  } else {
+    alert('Por favor, completa todos los campos correctamente.');
+  }
+};
+
+return (
+  <div style={{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '90vh',
+  }}>
+    <Container sx={{
       display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '90vh',
+      flexDirection: 'column',
+      margin: '1rem',
+      padding: '1rem',
+      width: 'auto',
+      borderRadius: '10px',
+      backgroundColor: 'rgba(255, 255, 255, 1)',
+      boxShadow: '0 0 10px rgba(0, 0, 0, 0.8)',
+      gap: '1rem',
     }}>
-      <Container sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        margin: '1rem',
-        padding: '1rem',
-        width: 'auto',
-        borderRadius: '10px',
-        backgroundColor: 'rgba(255, 255, 255, 1)',
-        boxShadow: '0 0 10px rgba(0, 0, 0, 0.8)',
-        gap: '1rem',
-      }}>
-        <Typography variant="h6" noWrap component="a" href="/" sx={{ fontFamily: 'monospace', fontWeight: 700, fontSize: '40px', letterSpacing: '.4rem', color: 'black', textDecoration: 'none' }}>
-          Contáctanos
-        </Typography>
-        <form noValidate autoComplete="off" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column'}}>
-          <FormControl sx={{ gap: "1rem" }}>
+      <Typography variant="h6" noWrap component="a" href="/" sx={{ fontFamily: 'monospace', fontWeight: 700, fontSize: '40px', letterSpacing: '.4rem', color: 'black', textDecoration: 'none' }}>
+        Contáctanos
+      </Typography>
+      <form noValidate autoComplete="off" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column'}}>
+        <FormControl sx={{ gap: "1rem" }}>
+          <FormControl sx={{ marginBottom: '1rem' }}>
             <OutlinedInput
               placeholder="Nombre"
               name="nombre"
@@ -90,6 +107,8 @@ const ContactForm = () => {
               error={errors.nombre}
               sx={{ borderRadius: '10px' }}
             />
+          </FormControl>
+          <FormControl sx={{ marginBottom: '1rem' }}>
             <OutlinedInput
               placeholder="Email"
               name="email"
@@ -98,6 +117,8 @@ const ContactForm = () => {
               error={errors.email}
               sx={{ borderRadius: '10px' }}
             />
+          </FormControl>
+          <FormControl sx={{ marginBottom: '1rem' }}>
             <OutlinedInput
               placeholder="Teléfono"
               name="telefono"
@@ -106,6 +127,8 @@ const ContactForm = () => {
               error={errors.telefono}
               sx={{ borderRadius: '10px' }}
             />
+          </FormControl>
+          <FormControl sx={{ marginBottom: '1rem' }}>
             <TextField
               placeholder="Dejanos tu consulta"
               name="consulta"
@@ -119,21 +142,22 @@ const ContactForm = () => {
               sx={{ borderRadius: '10px' }}
             />
           </FormControl>
-          <Button
-            type="submit"
-            sx={{
-              backgroundColor: 'black',
-              color: 'white',
-              borderRadius: '10px',
-              marginTop: '1rem',
-              width: '100px',
-              alignSelf: 'center',
-            }}>
-            Enviar
-          </Button>
-        </form>
-      </Container>
-    </div>
+        </FormControl>
+        <Button
+          type="submit"
+          sx={{
+            backgroundColor: 'black',
+            color: 'white',
+            borderRadius: '10px',
+            marginTop: '1rem',
+            width: '100px',
+            alignSelf: 'center',
+          }}>
+          Enviar
+        </Button>
+      </form>
+    </Container>
+  </div>
   )
 }
 
