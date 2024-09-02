@@ -26,6 +26,8 @@
   "env": {
     "EMAIL_USER": "@email_user",
     "EMAIL_PASS": "@email_pass",
-    "RECEIVER_EMAIL": "@receiver_email"
+    "RECEIVER_EMAIL": "@receiver_email",
+    "SENDGRID_API_KEY": "@sendgrid_api_key"
+    
   }
 }
