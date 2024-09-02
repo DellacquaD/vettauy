@@ -1,7 +1,10 @@
-// controllers/contactController.js
 import nodemailer from 'nodemailer';
 
-export const sendContactEmail = async (req, res) => {
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' });
+  }
+
   const { nombre, email, telefono, consulta } = req.body;
 
   const transporter = nodemailer.createTransport({
@@ -14,7 +17,7 @@ export const sendContactEmail = async (req, res) => {
 
   const mailOptions = {
     from: email,
-    to: process.env.RECEIVER_EMAIL, // Dirección de correo donde se recibirán las consultas
+    to: process.env.RECEIVER_EMAIL,
     subject: `Consulta de ${nombre}`,
     text: `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\nConsulta:\n${consulta}`,
   };
@@ -26,4 +29,4 @@ export const sendContactEmail = async (req, res) => {
     console.error('Error al enviar el correo:', error);
     res.status(500).json({ message: 'Error al enviar el correo' });
   }
-};
+}
