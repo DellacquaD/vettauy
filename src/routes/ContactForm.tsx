@@ -40,31 +40,41 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+  
+    // Log the form data before any validation
+    console.log('Form data before validation:', formData);
+  
     const newErrors = {
       nombre: formData.nombre === '',
       email: !validateEmail(formData.email),
       telefono: formData.telefono === '',
       consulta: formData.consulta === '',
     };
-
+  
+    // Log the errors state after validation
+    console.log('Validation errors:', newErrors);
+  
     setErrors(newErrors);
-
+  
     if (!Object.values(newErrors).some((error) => error)) {
       console.log('Form data before submission:', formData); // Log form data before submission
-
+  
       try {
-        const response = await fetch('http://localhost:3000/api/contact', { // Changed to relative URL
-        // const response = await fetch('/api/contact', { // Changed to relative URL
+        const response = await fetch('http://localhost:3000/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(formData),
         });
-
+  
+        // Log the response status and body
+        console.log('Response status:', response.status);
+        console.log('Response headers:', response.headers);
+        const responseBody = await response.json();
+        console.log('Response body:', responseBody);
+  
         if (response.ok) {
-          console.log('Response:', await response.json()); // Log response
           alert('Formulario enviado con éxito');
           setFormData({ nombre: '', email: '', telefono: '', consulta: '' });
         } else {
@@ -78,7 +88,7 @@ const ContactForm = () => {
     } else {
       alert('Por favor, completa todos los campos correctamente.');
     }
-  };
+  };  
 
   return (
     <div style={{

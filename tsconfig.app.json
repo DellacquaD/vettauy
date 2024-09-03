@@ -11,5 +11,6 @@
     "noEmit": true,
     "allowImportingTsExtensions": true
   },
-  "include": ["src"]
+  "include": ["src/**/*", "pages/api/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
