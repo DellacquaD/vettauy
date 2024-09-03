@@ -9,7 +9,7 @@ if (fs.existsSync(manifestPath)) {
   const scriptPath = manifest['index.html'].file;
 
   let htmlContent = fs.readFileSync(htmlPath, 'utf-8');
-  htmlContent = htmlContent.replace('<script type="module" src=""></script>', `<script type="module" src="${scriptPath}"></script>`);
+  htmlContent = htmlContent.replace('<%= scriptPath %>', scriptPath);
 
   fs.writeFileSync(htmlPath, htmlContent, 'utf-8');
   console.log('HTML file updated with the correct script path.');
