@@ -60,7 +60,7 @@ const ContactForm = () => {
       console.log('Form data before submission:', formData); // Log form data before submission
   
       try {
-        const response = await fetch('pages/api/contact', {
+        const response = await fetch('https://4fhxty28ej.execute-api.us-east-2.amazonaws.com/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
