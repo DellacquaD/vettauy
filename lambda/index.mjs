@@ -32,7 +32,7 @@ export async function handler(event) {
             from: process.env.EMAIL_USER, // Dirección de correo electrónico del remitente
             to: `${process.env.EMAIL_USER}, ${email}`, // Dirección del destinatario y la dirección de la persona que realizó la consulta
             subject: `Consulta de ${nombre} a VettaUy`,
-            text: `Hola ${nombre}, gracias por contactarnos.\n\nEstaremos  analizando tu consulta y a la brevedad estaremos en contacto con todos los detalles.\n\nLos datos de contacto con los que contamos son:\nEmail: ${email}\nTeléfono: ${telefono}\nConsulta:\n${consulta}\n\nQuedamos en contacto\nSaludos`,
+            text: `Hola ${nombre}, gracias por contactarnos.\n\nEstaremos  analizando tu consulta y a la brevedad nos comunicaremos con todos los detalles.\n\nLos datos de contacto con los que contamos son:\nEmail: ${email}\nTeléfono: ${telefono}\nConsulta:\n${consulta}\n\Gracias por esperar nuestra respuesta\nSaludos`,
         };
 
         await transporter.sendMail(mailOptions);
