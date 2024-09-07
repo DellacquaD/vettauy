@@ -1,15 +1,24 @@
 import nodemailer from 'nodemailer';
 
 export async function handler(event) {
+    console.log('Event:', JSON.stringify(event, null, 2)); // Imprime el evento completo para depuración
+
     try {
-        if (event.httpMethod !== 'POST') {
+        const httpMethod = event.requestContext?.http?.method || event.httpMethod || 'UNKNOWN';
+        if (httpMethod !== 'POST') {
+            console.log(`Method not allowed ${httpMethod}`); // Log en caso de método no permitido
             return {
                 statusCode: 405,
-                body: JSON.stringify({ message: 'Method not allowed' }),
+                body: JSON.stringify({
+                    message: 'Method not alloweed',
+                    method: httpMethod
+                }),
             };
         }
 
         const { nombre, email, telefono, consulta } = JSON.parse(event.body);
+
+        console.log('Payload:', { nombre, email, telefono, consulta }); // Log para verificar el payload
 
         const transporter = nodemailer.createTransport({
             service: 'Gmail',
@@ -20,23 +29,32 @@ export async function handler(event) {
         });
 
         const mailOptions = {
-            from: email,
-            to: process.env.RECEIVER_EMAIL,
-            subject: `Consulta de ${nombre}`,
-            text: `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\nConsulta:\n${consulta}`,
+            from: process.env.EMAIL_USER, // Dirección de correo electrónico del remitente
+            to: `${process.env.EMAIL_USER}, ${email}`, // Dirección del destinatario y la dirección de la persona que realizó la consulta
+            subject: `Consulta de ${nombre} a VettaUy`,
+            text: `Hola ${nombre}, gracias por contactarnos.\n\nEstaremos  analizando tu consulta y a la brevedad estaremos en contacto con todos los detalles.\n\nLos datos de contacto con los que contamos son:\nEmail: ${email}\nTeléfono: ${telefono}\nConsulta:\n${consulta}\n\nQuedamos en contacto\nSaludos`,
         };
 
         await transporter.sendMail(mailOptions);
 
+        console.log('Correo enviado exitosamente'); // Log en caso de éxito
+
         return {
             statusCode: 200,
-            body: JSON.stringify({ message: 'Correo enviado exitosamente' }),
+            body: JSON.stringify({
+                message: 'Correo enviado exitosamente',
+                payload: { nombre, email, telefono, consulta }
+            }),
         };
     } catch (error) {
-        console.error('Error al enviar el correo:', error);
+        console.error('Error al enviar el correo:', error); // Log en caso de error
         return {
             statusCode: 500,
-            body: JSON.stringify({ message: 'Error al enviar el correo' }),
+            body: JSON.stringify({
+                message: 'Error al enviar el correo',
+                error: error.message, // Agrega el mensaje de error
+                event: event // Opcionalmente, agrega el evento para depuración adicional
+            }),
         };
     }
 }
