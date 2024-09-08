@@ -28,7 +28,7 @@ export const AppFooter: FC = (): ReactElement => {
     >
       <Container >
         <Container >
-        <Typography
+            <Typography
                 variant="h6"
                 noWrap
                 component="a"
@@ -40,9 +40,27 @@ export const AppFooter: FC = (): ReactElement => {
                     letterSpacing: '.4rem',
                     color: 'white',
                     textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'baseline',
                 }}
             >
                 VETTA
+                <Typography
+                    variant="h6"
+                    component="span"
+                    sx={{
+                        fontFamily: 'monospace',
+                        fontWeight: 700,
+                        fontSize: '16px',
+                        lineHeight: 1,
+                        letterSpacing: '0',
+                        color: 'white',
+                        marginLeft: '4px',
+                        verticalAlign: 'super',
+                    }}
+                >
+                    UY
+                </Typography>
             </Typography>
             <Container style={{ display: "flex", justifyContent: "center" }}>
                 <PinDropIcon sx={{
