@@ -34,7 +34,7 @@ const pages = {
 
   return (
     <div>
-        <AppBar position="fixed" style={{ backgroundColor: "rgba(0, 0, 0, 1)", top: 0, left: 0, maxWidth: '1920px'}}>
+        <AppBar position="fixed" style={{ backgroundColor: "rgba(180, 180, 180, 1)", top: 0, left: 0, maxWidth: '1920px'}}>
         <Container style={{ height: '12vh', display: 'flex'  }}>
             <Toolbar disableGutters sx={{
                 display: 'flex',

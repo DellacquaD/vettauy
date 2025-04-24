@@ -1,5 +1,5 @@
 import { FC, ReactElement } from "react";
-import { Box, Container, Typography } from "@mui/material";
+import {Box, Container, Link, Typography} from "@mui/material";
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -8,12 +8,13 @@ import XIcon from '@mui/icons-material/X';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 
 export const AppFooter: FC = (): ReactElement => {
-  return (
+  // @ts-ignore
+    return (
     <Box
       sx={{
         width: "100%",
         height: "auto",
-        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        backgroundColor: "rgba(180, 180, 180, 0.9)",
         paddingTop: "1rem",
         paddingBottom: "1rem",
         display: 'flex',
@@ -114,7 +115,7 @@ export const AppFooter: FC = (): ReactElement => {
       Combinamos años de experiencia con técnicas modernas para ofrecerte soluciones personalizadas y de alta calidad. Nos especializamos en detalles precisos y acabados impecables, garantizando que cada proyecto, desde muebles a medida hasta renovaciones, supere tus expectativas.
       </Typography>
       <Container style={{ display: "flex", flexDirection: "row", gap: "1rem", justifyContent: "center" }}>
-        <Typography><InstagramIcon sx={{ color: "white"}}/></Typography>
+        <Link href="https://www.instagram.com/vettauy"><InstagramIcon sx={{ color: "white"}}/></Link>
         <Typography><FacebookIcon sx={{ color: "white"}}/></Typography>
         <Typography><XIcon sx={{ color: "white"}}/></Typography>
         <Typography><PinterestIcon sx={{ color: "white"}}/></Typography>
